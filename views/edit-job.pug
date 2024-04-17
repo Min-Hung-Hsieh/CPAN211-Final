@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+    title Edit Job
+    style.
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f7f7f7;
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 300px;
+        margin-bottom: 20px;  
+      }
+      label {
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+      }
+      input[type='text'],
+      input[type='number'] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      input[type='submit'] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      input[type='submit']:hover {
+        background-color: #0056b3;
+      }
+      .delete-button {
+        background-color: #dc3545;
+        border-color: #dc3545;
+      }
+      .delete-button:hover {
+        background-color: #c82333;
+      }
+  body
+    h1 Edit Job
+    form(method='POST', action=`/job/edit/${job._id}`)
+      div
+        label(for='title') Title:
+        input(type='text', name='title', value=job.title, required=true)
+      div
+        label(for='company') Company:
+        input(type='text', name='company', value=job.company, required=true)
+      div
+        label(for='location') Location:
+        input(type='text', name='location', value=job.location, required=true)
+      div
+        label(for='salary') Salary:
+        input(type='number', name='salary', value=job.salary, required=true)
+      input(type='submit', value='Update Job')
+    div.actions
+        a(href='/home', class='btn home') Back to Home

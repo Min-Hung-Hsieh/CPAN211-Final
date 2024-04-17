@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Jobs Listing
+    link(rel='stylesheet' href='jobs.css')
+  body
+    header
+      h1 Let's make your next great hire. Fast.
+    main
+      ul.jobs-list
+        each job in jobs
+          li.job-item
+            .job-detail Job Title: #{job.title}
+            .job-detail Company: #{job.company}
+            .job-detail Location: #{job.location}
+            .job-detail Salary: $#{job.salary}
+            div.actions
+              a(href=`/job/edit/${job._id}`, class='btn edit') Edit
+              a(href=`/job/delete/${job._id}`, class='btn delete') Delete
+      div.actions
+        a(href='/job/add', class='btn add') Add New Job
+        a(href='/home', class='btn home') Back to Home

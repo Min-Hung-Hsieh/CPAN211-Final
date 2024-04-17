@@ -1,0 +1,49 @@
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Form Header
+    script(src="https://cdn.tailwindcss.com")
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet")
+    link(rel="stylesheet", href="/jobs.css")
+    style.
+      body { font-family: "Inter", sans-serif; }
+      .checkmark {
+        background-image: url("https://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/sign-check-icon.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+  body.bg-gray-100.p-8
+    .max-w-3xl.mx-auto.bg-white.p-6.rounded.shadow
+        
+        h1.text-2xl.font-semibold.mb-4 User Information
+        p.mb-2 First Name: #{user.firstName}
+        p.mb-2 Last Name: #{user.lastName}
+        p.mb-2 Email: #{user.email}
+        p.mb-2 City: #{user.city}
+        p.mb-2 Phone: #{user.phone} 
+    form(action="/update-profile", method="post").max-w-3xl.mx-auto.bg-white.p-6.rounded.shadow
+      h2.text-2xl.font-semibold.mb-6 Update Your Profile
+      .grid.gap-6.mb-6
+        .grid.grid-cols-2.gap-6
+          .relative
+            input(type="text" name="firstName"  class="border-2 border-green-500 rounded w-full py-2 px-3" placeholder="First Name")
+            span.checkmark.absolute.right-2.top-2
+          .relative
+            input(type="text" name="lastName"  class="border-2 border-green-500 rounded w-full py-2 px-3" placeholder="Last Name")
+            span.checkmark.absolute.right-2.top-2
+          .relative
+            input(type="email" name="email"  class="border-2 border-green-500 rounded w-full py-2 px-3" placeholder="Email Address")
+            span.checkmark.absolute.right-2.top-2
+          .relative
+            input(type="text" name="city"  class="border-2 border-green-500 rounded w-full py-2 px-3" placeholder="City")
+            span.checkmark.absolute.right-2.top-2  
+          .relative
+            input(type="text" name="phone"  class="border-2 border-green-500 rounded w-full py-2 px-3" placeholder="Phone Number")
+            span.checkmark.absolute.right-2.top-2    
+      button(type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-400") Update Profile
+      br
+      br 
+      a(href='/home', class='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full') Back to Home

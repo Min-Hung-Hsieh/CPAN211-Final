@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Job Search Website
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="styles.css")
+    title Login
+    script.
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const message = params.get("success") || params.get("error");
+        if (message) alert(message);
+      });
+  body
+    .form-container
+      h1 Login
+      form(action="/login" method="post")
+        .form-row
+          label(for="username") Username:
+          input(type="text" id="username" name="username" required)
+        .form-row
+          label(for="password") Password:
+          input(type="password" id="password" name="password" required)
+        .form-row
+          button(type="submit") Login
+
+  script.
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const successMessage = params.get("success");
+      if (successMessage) {
+        //- alert(successMessage);
+        window.location.href = '/home'; // 指定重定向的目标URL
+      }
+      const errorMessage = params.get("error");
+      if (errorMessage) {
+        //- alert(errorMessage);
+      }
+    });

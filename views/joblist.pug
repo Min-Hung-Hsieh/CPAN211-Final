@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Search Results
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="/jobList.css")
+  body
+    header.container
+      h1.text-center.mt-5 Search Results
+    main.container.mt-5
+      if jobs.length
+        ul.list-group
+          each job in jobs
+            li.list-group-item
+              h5= job.title
+              h6= "Company: " + job.company
+              h6= "Location: " + job.location
+              h6= "Salary: $" + job.salary
+              h6= "description" + job.description
+      else
+        .alert.alert-warning No jobs found matching your criteria
+
+    div.actions
+        a(href='/home', class='btn home') Back to Home

@@ -1,0 +1,72 @@
+/* jobs.css */
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f4f4f4;
+}
+
+header.container {
+  margin-bottom: 2rem; /* Add some spacing at the bottom of the header */
+}
+
+h1 {
+  color: #333;
+}
+
+ul.list-group {
+  margin-bottom: 2rem;
+}
+
+li.list-group-item {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 2px solid #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h5 {
+  margin-bottom: 0.5rem;
+  color: #007bff;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.alert.alert-warning {
+  margin-top: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn.home {
+  background-color: #891545;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+
+.btn.home:hover {
+  background-color: #700b36;
+}
+
+.btn.apply {
+  background-color: #28a745;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  margin-top: 1rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn.apply:hover {
+  background-color: #218838;
+}

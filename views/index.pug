@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Job Search Website
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="styles.css")
+  body
+    .auth-buttons
+      if session.username
+        h2 Hello #{session.username}
+        br
+        a(href='/profile') Profile
+        a(href='/logout') Logout
+        // Post Jobs button visibility controlled via JavaScript
+        br
+        br
+        a.btn.btn-info(href='/job', style='display: none;') Post Jobs
+      else
+        a(href='/login') Login
+        a(href='/register') Register
+    header.container
+      h1.text-center.mt-5 Welcome to the Job Search Website
+    main.container.mt-5
+      .text-center.mb-5
+        button.btn.btn-primary.mr-2#job-seeker-btn Job Seeker
+        button.btn.btn-secondary#job-poster-btn Job Poster
+      #search-section.mb-5
+        h2.text-center Search for Jobs
+        form#search-form(action='/search', method='GET')
+            input.form-control.mb-2#search-keyword(type="text", name="keyword", placeholder="Enter job title or keywords")
+            button.btn.btn-success.form-control(type="submit") Search
+    script.
+      document.getElementById('job-seeker-btn').addEventListener('click', function() {
+        const postJobsButton = document.querySelector('.auth-buttons a.btn-info');
+        if (postJobsButton) postJobsButton.style.display = 'none';
+      });
+      document.getElementById('job-poster-btn').addEventListener('click', function() {
+        const postJobsButton = document.querySelector('.auth-buttons a.btn-info');
+        if (postJobsButton) postJobsButton.style.display = 'block';
+      });
